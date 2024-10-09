@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Introduction
+This minimalistic application has a single input UI that takes a zip code and returns the weather for the given location.
 
-Things you may want to cover:
+# Get started
+- In order for this app to work locally you'll need an API key from https://www.weatherapi.com/. Set that key to an environment variable called `WEATHER_API_KEY`
+- Run `bundle install` to install dependencies
+- Run `rails s -p 3000` to start the rails server and view the application running locally at http://localhost:3000/
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Demo
