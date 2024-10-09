@@ -12,5 +12,5 @@ This minimalistic application has a single input UI that takes a zip code and re
 - Run the unit test suite by navigating to the application and then running `rspec spec/`
 
 # Demo
-- https://www.loom.com/share/076aafced0604b79a495f4e540c47ea6?sid=3b2c5a81-0641-4dee-8f1c-2ad9eb18a512
+https://www.loom.com/share/076aafced0604b79a495f4e540c47ea6?sid=3b2c5a81-0641-4dee-8f1c-2ad9eb18a512
 
