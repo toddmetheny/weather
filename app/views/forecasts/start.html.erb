@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="wrap">
+    <div class="row">
+        <h3>Enter a zip code to see the weather forecast!</h3>
+    </div>
+    <div class="search">
+        <input type="text" class="searchTerm" placeholder="Enter 5-digit zip code">
+        <button type="submit" class="searchButton">
+          <i class="fa fa-search"></i>
+      </button>
+    </div>
+    <div class="row forecast-row">
+      <div class="col-md-4">
+        <div class="forecast" style="display:none">
+          <div class="row">
+            <div class="col-md-4">
+              <h3 class="location">Today</h3>
+              <p style="font-size: 30px"><span class="current_temp"></span></p>
+              <div>
+                <img src="" class="condition_image" />
+                <p><span class="conditions"></span></p>
+              </div>
+              <p>H: <span class="high"></span>&deg;  L: <span class="low"></span>&deg;</p>
+            </div>
+          </div>
+        </div>
+        <div class="from-cache" style="display:none">
+          <p id="cached_result">*Cached result</p>
+        </div>
+      </div>
+    </div>   
+  </div>
+</div>
+
+<script type="text/javascript">
+  function showForecast(response){
+    $(".location").text(response.location);
+    $(".current_temp").text(response.current_temp);
+    $(".high").text(response.high);
+    $(".low").text(response.low);
+    $(".conditions").text(response.condition_text);
+    $(".condition_image").attr("src", response.condition_icon);
+    $(".forecast").show();
+  }
+
+  function fromCache(response){
+    if(response.from_cache == true){
+      $(".from-cache").show();
+    } else {
+      $(".from-cache").hide();
+    }
+  }
+
+  function getForecast(zip){
+    $.ajax({
+        url: '/forecasts/search',
+        type: 'GET',
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: { zip: zip },
+        error: function(xhr, status, error) {
+          console.log("error", xhr, status, error);
+          alert("There was an error getting the forecast. Please try again.");
+        }
+      }).done((response) => {
+        if(response.error){
+          $(".forecast-row").hide();
+          alert(response.error);
+        } else {
+          showForecast(response);
+          fromCache(response);
+        }
+      });
+  }
+
+  $(document).ready(function() {
+    $('.searchButton').click(function() {
+      const zip = $('.searchTerm').val();
+      
+      getForecast(zip);
+    });
+  });
+</script>

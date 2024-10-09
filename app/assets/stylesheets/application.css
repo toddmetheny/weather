@@ -1,0 +1,151 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+.forecast {
+  display: block;
+  background: linear-gradient(180deg, #89CFF0, #E0F7FA);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.forecast .location {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.forecast .current_temp {
+  font-size: 4em;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.forecast img.condition_image {
+  width: 80px;
+  height: 80px;
+  margin: 10px 0;
+}
+
+.forecast .conditions {
+  font-size: 1.2em;
+  font-weight: 400;
+}
+
+.forecast .high, .forecast .low {
+  font-weight: 300;
+  font-size: 1.1em;
+}
+
+.forecast p {
+  margin: 10px 0;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.col-md-4 {
+  flex: 1;
+}
+
+/* Optional: animation for smoother appearance */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.forecast {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Icon styling to match Apple's rounded, simple icons */
+.condition_image {
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+  border-radius: 50%;
+}
+
+/* Adjustments for responsiveness */
+@media screen and (max-width: 768px) {
+  .forecast {
+    max-width: 90%;
+    padding: 15px;
+  }
+  .forecast .current_temp {
+    font-size: 3em;
+  }
+  .forecast img.condition_image {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #4075c0;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #4075c0;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #4075c0;
+  background: #4075c0;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#cached_result {
+  font-size: small;
+  color: gray;
+}
